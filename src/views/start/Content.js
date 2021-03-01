@@ -1,20 +1,17 @@
 import React from 'react'
-import Appear from './../Appear'
-import BrDealer from './../BrDealer'
+import Appear from './../../components/Appear'
+import BrDealer from './../../components/BrDealer'
 
-const Answer = props => {
-  const answer = props.content?? []
-
-  return(
+const Content = ({ dataList }) => {
+  return (
     <>
-      <div style={{ fontSize: 16, letterSpacing: 1, color: '#3f51b5' }}>解题过程</div>
       <div style={{ fontSize: 14, letterSpacing: 1, margin: '20px 30px' }}>
-        { answer.map((item, index) => {
+        { dataList.map((item, index) => {
           if (item.type === 'text') {
             return (
               <>
                 <Appear key={index}>
-                  <span>{item.content}</span>
+                  <span dangerouslySetInnerHTML={{ __html: item.content }}></span>
                 </Appear>
                 <BrDealer br={item.br} key={index+'a'} />
               </>
@@ -26,4 +23,4 @@ const Answer = props => {
   )
 }
 
-export default Answer
+export default Content
