@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Button, Cascader, Steps } from 'antd';
+import { Card, Button, Cascader, Steps, message } from 'antd';
 import Question from '../../components/main/Question'
 import Answer from '../../components/main/Answer'
 import Content from './Content'
@@ -166,6 +166,12 @@ const StudyPage = () => {
   }
 
   const nextStep = () => {
+    if (dataList[0].length === 0) {
+      console.log('Jinlaile')
+      message.warning('请先选择章节')
+      console.log('aaa')
+      return
+    }
     if (dataList[bigStepNum].length === mediumStepNum) {
       setBigStepNum(bigStepNum + 1)
       setMediumStepNum(0)
@@ -191,7 +197,7 @@ const StudyPage = () => {
         <Answer content={answerList} />
       </Card> */}
       <Card title={title} style={{ width: '90%', margin: '10px auto' }} extra={<Button onClick={nextStep}>下一步</Button>}>
-        <Content dataList={dataList[bigStepNum].slice(0, mediumStepNum)}></Content>
+        <Content allData={dataList} bigStepNum={bigStepNum} mediumStepNum={mediumStepNum}></Content>
       </Card>
     </>
   )

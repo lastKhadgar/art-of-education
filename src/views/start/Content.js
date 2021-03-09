@@ -1,24 +1,24 @@
 import React from 'react'
-import Appear from './../../components/Appear'
-import BrDealer from './../../components/BrDealer'
+import BasicPoints from './BasicPoints'
+import Question from './Question'
 
-const Content = ({ dataList }) => {
+const Content = ({ allData, bigStepNum, mediumStepNum }) => {
+
+  let data
+  if (bigStepNum === 0) { // 知识点
+    data = allData[bigStepNum].slice(0, mediumStepNum)
+  } else { // 题目
+    data = allData[bigStepNum][mediumStepNum]
+  }
+  
+
   return (
     <>
-      <div style={{ fontSize: 14, letterSpacing: 1, margin: '20px 30px' }}>
-        { dataList.map((item, index) => {
-          if (item.type === 'text') {
-            return (
-              <>
-                <Appear key={index}>
-                  <span dangerouslySetInnerHTML={{ __html: item.content }}></span>
-                </Appear>
-                <BrDealer br={item.br} key={index+'a'} />
-              </>
-            )
-          }
-        }) }
-      </div>
+      {
+        bigStepNum === 0 ? 
+        <BasicPoints dataList={data} /> :
+        <Question data={data} mediumStepNum={mediumStepNum} />
+      }
     </>
   )
 }
