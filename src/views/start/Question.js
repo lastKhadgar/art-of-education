@@ -61,7 +61,7 @@ const Question = ({ allData }) => {
         {
           showAnswer ? 
           <>
-            <Analysis style={{ marginRight: 10 }} question={allData[questionNum]} />
+            <Analysis question={allData[questionNum]} />
             <Button type='primary' onClick={nextQuestion}>下一题</Button>
           </> : 
           <Button type='primary' onClick={() => setShowAnswer(true)}>提交</Button>
