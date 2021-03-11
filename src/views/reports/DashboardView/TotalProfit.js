@@ -1,15 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import {
-  Avatar,
-  Card,
-  CardContent,
-  Grid,
-  Typography,
-  makeStyles,
-  colors
-} from '@material-ui/core';
+import { Avatar, Card, CardContent, Grid, Typography, makeStyles, colors } from '@material-ui/core';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 
 const useStyles = makeStyles(() => ({
@@ -27,29 +19,15 @@ const TotalProfit = ({ className, ...rest }) => {
   const classes = useStyles();
 
   return (
-    <Card
-      className={clsx(classes.root, className)}
-      {...rest}
-    >
+    <Card className={clsx(classes.root, className)} {...rest} >
       <CardContent>
-        <Grid
-          container
-          justify="space-between"
-          spacing={3}
-        >
-          <Grid item>
-            <Typography
-              color="textSecondary"
-              gutterBottom
-              variant="h6"
-            >
-              TOTAL PROFIT
+        <Grid container justify="space-between" spacing={3} >
+          <Grid item xs={12}>
+            <Typography color="textSecondary" gutterBottom variant="h5" >
+              综合评分
             </Typography>
-            <Typography
-              color="textPrimary"
-              variant="h3"
-            >
-              $23,200
+            <Typography color="textPrimary" variant="h2" >
+              87
             </Typography>
           </Grid>
           <Grid item>

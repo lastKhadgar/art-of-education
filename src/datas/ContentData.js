@@ -15,6 +15,13 @@ const ContentData = {
             type: 'question',
             question: `求下列各数的算数平方根：<br/>
               (1) 9/16  (2) 11<sup>2</sup>  (3) 0.25  `,
+            answer: ['3/4', '11', '0.5'],
+            analysis: []
+          },
+          {
+            type: 'question',
+            question: `求下列各数的算数平方根：<br/>
+              (1) 9/16  (2) 11<sup>2</sup>  (3) 0.25  `,
             answer: ['3/4', '11', '0.5']
           }
         ],

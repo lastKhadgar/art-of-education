@@ -1,17 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import {
-  Avatar,
-  Box,
-  Card,
-  CardContent,
-  Grid,
-  LinearProgress,
-  Typography,
-  makeStyles,
-  colors
-} from '@material-ui/core';
+import { Avatar, Box, Card, CardContent, Grid, LinearProgress, Typography, makeStyles, colors } from '@material-ui/core';
 import InsertChartIcon from '@material-ui/icons/InsertChartOutlined';
 
 const useStyles = makeStyles(() => ({
@@ -34,23 +24,12 @@ const TasksProgress = ({ className, ...rest }) => {
       {...rest}
     >
       <CardContent>
-        <Grid
-          container
-          justify="space-between"
-          spacing={3}
-        >
-          <Grid item>
-            <Typography
-              color="textSecondary"
-              gutterBottom
-              variant="h6"
-            >
-              TASKS PROGRESS
+        <Grid container justify="space-between" spacing={3} >
+          <Grid item xs={12}>
+            <Typography color="textSecondary" gutterBottom variant="h5" >
+              学习进度
             </Typography>
-            <Typography
-              color="textPrimary"
-              variant="h3"
-            >
+            <Typography color="textPrimary" variant="h2" >
               75.5%
             </Typography>
           </Grid>
@@ -61,10 +40,7 @@ const TasksProgress = ({ className, ...rest }) => {
           </Grid>
         </Grid>
         <Box mt={3}>
-          <LinearProgress
-            value={75.5}
-            variant="determinate"
-          />
+          <LinearProgress value={75.5} variant="determinate" />
         </Box>
       </CardContent>
     </Card>

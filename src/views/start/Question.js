@@ -1,6 +1,7 @@
 import React from 'react'
 import { Row, Col, Input, Button } from 'antd';
 import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
+import Analysis from './../../components/analysis'
 
 const styles = {
   question: {
@@ -31,36 +32,40 @@ const AnswerItem = ({ answer, showAnswer }) => {
   )
 }
 
-const Question = ({ data, mediumStepNum }) => {
-  const [myAnswer, setMyAnswer] = React.useState([])
+const Question = ({ allData }) => {
+  const [questionNum, setQuestionNum] = React.useState(0)
   const [showAnswer, setShowAnswer] = React.useState(false)
 
-  const handleChange = (value, index) => {
-    setMyAnswer(before => {
-      let result = [...before]
-      result[index] = value
-      return result
-    })
+  const nextQuestion = () => {
+    setShowAnswer(false)
+    setQuestionNum(questionNum + 1)
   }
 
   return (<>
     <Row>
-      <Col span={24}><div style={{ fontWeight: 'bold' }}>问题{mediumStepNum + 1}：</div></Col>
+      <Col span={24}><div style={{ fontWeight: 'bold' }}>问题{questionNum + 1}：</div></Col>
     </Row>
     <Row>
       <Col offset={1} span={23}>
-        <span style={styles.question} dangerouslySetInnerHTML={{ __html: data.question }}></span>
+        <span style={styles.question} dangerouslySetInnerHTML={{ __html: allData[questionNum].question }}></span>
       </Col>
     </Row>
     <Row>
       <Col offset={1} span={23}>
         <span style={{ lineHeight: 3 }}>我的答案： </span>
         {
-          data.answer.map((item, index) => (
+          allData[questionNum].answer.map((item, index) => (
             <AnswerItem key={index} answer={item} showAnswer={showAnswer} />
           )) 
         }
-        <Button type='primary' onClick={() => setShowAnswer(true)}>提交</Button>
+        {
+          showAnswer ? 
+          <>
+            <Analysis style={{ marginRight: 10 }} question={allData[questionNum]} />
+            <Button type='primary' onClick={nextQuestion}>下一题</Button>
+          </> : 
+          <Button type='primary' onClick={() => setShowAnswer(true)}>提交</Button>
+        }
       </Col>
     </Row>
   </>)
