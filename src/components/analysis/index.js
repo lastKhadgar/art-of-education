@@ -1,5 +1,7 @@
 import React from 'react'
 import { Button, Modal } from 'antd';
+import SvgDrawer from './SvgDrawer'
+import QuestionViewer from './QuestionViewer'
 
 const style = {
   div: {
@@ -9,15 +11,15 @@ const style = {
     width: 700,
     height: 500,
     background: '#ddd',
-    fontSize: 20,
-    fontWeight: 500
+    fontSize: 24,
+    fontWeight: 500,
+    padding: 20
   },
   div2: {
     width: 700,
     height: 500,
-    border: 'solid red 1px',
     position: 'absolute',
-    top: 0
+    top: 32
   },
   btn: {
     marginRight: 10
@@ -27,6 +29,13 @@ const style = {
 const Analysiser = ({ question }) => {
 
   const [visible, setVisible] = React.useState(false)
+  const [stepNum, setStepNum] = React.useState(0)
+  const [loading, setLoading] = React.useState(false)
+
+  const stepChange = (num) => {
+    setLoading(true)
+    setStepNum(stepNum + num)
+  }
 
   return (
     <>
@@ -34,22 +43,17 @@ const Analysiser = ({ question }) => {
       <Modal width={800} zIndex={2000} visible={visible} footer={null} maskClosable={false}
           onCancel={() => {setVisible(false)}}>
         <div style={style.div}>
+          <Button style={style.btn} disabled={stepNum <= 0} onClick={() => stepChange(-1)}>上一步</Button>
+          <Button disabled={stepNum >= question.analysis.length} loading={loading} onClick={() => stepChange(1)}>下一步</Button>
           <div style={style.div1}>
-            <span dangerouslySetInnerHTML={{ __html: question.question }}></span>
+            <QuestionViewer question={question} />
           </div>
           <div style={style.div2}>
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style={{ width: '100%', height: '100%' }}>
-              <ellipse cx="150" cy="50" rx="20" ry="15" stroke='red' stroke-width='2' fill-opacity='0' />
-              <defs>
-                <marker id="Triangle" viewBox="0 0 20 20" refX="0" refY="10"
-                    markerWidth="10" markerHeight="10" orient="auto">
-                  <path d="M 0 0 L 20 10 L 0 20 z" />
-                </marker>
-              </defs>
-            
-              <polyline points="10,90 50,80 90,20" fill="none" stroke="black" 
-                  stroke-width="2" marker-end="url(#Triangle)" />
-            </svg>
+            <SvgDrawer
+              markList={stepNum ? question.analysis[stepNum - 1].marks : []} 
+              textList={stepNum ? question.analysis.slice(0, stepNum).map(item => item.text) : []}
+              setLoading={setLoading}
+            />
           </div>
         </div>
       </Modal>

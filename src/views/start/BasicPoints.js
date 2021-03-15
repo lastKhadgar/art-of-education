@@ -11,7 +11,7 @@ const BasicPoints = ({ allData, nextBigStep }) => {
     <>
       <Button disabled={stepNum <= 1} onClick={() => setStepNum(stepNum - 1)}>上一步</Button>
       <Button disabled={stepNum >= allData.length} onClick={() => setStepNum(stepNum + 1)}>下一步</Button>
-      <div style={{ fontSize: 14, letterSpacing: 1, margin: '20px 30px' }}>
+      <div style={{ fontSize: 16, letterSpacing: 1, margin: '20px 30px' }}>
         { allData.slice(0, stepNum).map((item, index) => {
           if (item.type === 'text') {
             return (
