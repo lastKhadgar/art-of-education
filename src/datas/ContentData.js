@@ -99,8 +99,69 @@ const ContentData = {
             ]
           }
         ],
-        [],
-        []
+        [
+          {
+            type: 'question',
+            questionType: 'TorF',
+            question: `判断下列说法是否正确`,
+            subQuestion: [
+              '5/7 是 25/49 的一个平方根',
+              '(-6)<sup>2</sup> 的平方根是 -6',
+              '0 的平方根和算数平方根都是 0'
+            ],
+            answer: [true, false, true],
+            analysis: [
+              {
+                marks: [
+                  { type: 'ellipse', cx: 310, cy: 77, rx: 46, ry: 20 },
+                  { type: 'text', x: 370, y: 84, fill: 'red', fontSize: '20', content: '正负数两个值' }
+                ],
+                text: [
+                  { x: 20, y: 250, fill: 'black', fontSize: '16', content: '1、25/49 平方根有两个数，±5/7，5/7 是' },
+                  { x: 320, y: 250, fill: 'red', fontSize: '20', content: '其中一个' }
+                ]
+              },
+              {
+                marks: [
+                  { type: 'ellipse', cx: 173, cy: 114, rx: 46, ry: 20 },
+                  { type: 'text', x: 280, y: 122, fill: 'red', fontSize: '20', content: '正负数两个值' }
+                ],
+                text: [
+                  { x: 20, y: 290, fill: 'black', fontSize: '16', content: '2、36 平方根有两个数，' },
+                  { x: 190, y: 290, fill: 'red', fontSize: '20', content: '±6' }
+                ]
+              },
+              {
+                marks: [],
+                text: [
+                  { x: 20, y: 330, fill: 'black', fontSize: '16', content: '3、' },
+                  { x: 45, y: 330, fill: 'red', fontSize: '20', content: '关键点' }
+                ]
+              },
+            ]
+          }
+        ],
+        [
+          {
+            type: 'question',
+            questionType: 'choose',
+            question: `数 16 的算术平方根是（ ）`,
+            options: ['4', '-4', '±4', '√4'],
+            answer: 1
+          },
+          {
+            type: 'question',
+            questionType: 'choose',
+            question: `下列说法正确的是（ ）`,
+            options: [
+              '2 的算术平方根记作 ±√2',
+              '√25 表示 25 的算术平方根',
+              '-√2 表示 2 的算数平方根',
+              '2 是 √2 的算数平方根'
+            ],
+            answer: 2
+          },
+        ]
       ]
     }
   }

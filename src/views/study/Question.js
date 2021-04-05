@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Row, Col, Input, Button, Radio } from 'antd';
 import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
-import Analysis from './../../components/analysis'
+import Analysis from '../../components/analysis'
 
 const styles = {
   question: {
@@ -105,13 +105,20 @@ const TorFQuestion = ({ data, showAnswer }) => {
   </>)
 }
 
-const Question = ({ allData }) => {
+const Question = ({ allData, nextBigStep }) => {
   const [questionNum, setQuestionNum] = React.useState(0)
   const [showAnswer, setShowAnswer] = React.useState(false)
 
   const nextQuestion = () => {
     setShowAnswer(false)
     setQuestionNum(questionNum + 1)
+  }
+
+  // 下一阶段
+  const nextBigStep1 = () => {
+    setShowAnswer(false)
+    setQuestionNum(0)
+    nextBigStep()
   }
 
   return (<>
@@ -131,7 +138,12 @@ const Question = ({ allData }) => {
           showAnswer ? 
           <>
             <Analysis question={allData[questionNum]} />
-            <Button type='primary' onClick={nextQuestion}>下一题</Button>
+            {
+              questionNum >= allData.length - 1 ?
+              <Button type='primary' onClick={nextBigStep1}>此阶段完成，进入下一阶段 →</Button>
+              :
+              <Button type='primary' onClick={nextQuestion}>下一题</Button>
+            }
           </> : 
           <Button type='primary' onClick={() => setShowAnswer(true)}>提交</Button>
         }

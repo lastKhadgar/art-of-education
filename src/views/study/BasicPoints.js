@@ -1,7 +1,7 @@
 import React from 'react' 
 import { Button } from 'antd';
-import Appear from './../../components/Appear'
-import BrDealer from './../../components/BrDealer'
+import Appear from '../../components/Appear'
+import BrDealer from '../../components/BrDealer'
 
 const BasicPoints = ({ allData, nextBigStep }) => {
 

@@ -10,7 +10,7 @@ import NotFoundView from 'src/views/errors/NotFoundView';
 import ProductListView from 'src/views/product/ProductListView';
 import RegisterView from 'src/views/auth/RegisterView';
 import SettingsView from 'src/views/settings/SettingsView';
-import StudyPage from 'src/views/start/studyPage'
+import StudyPage from 'src/views/study/studyPage'
 
 const routes = [
   {
@@ -22,7 +22,7 @@ const routes = [
       { path: 'dashboard', element: <DashboardView /> },
       { path: 'products', element: <ProductListView /> },
       { path: 'settings', element: <SettingsView /> },
-      { path: 'start', element: <StudyPage /> },
+      { path: 'study', element: <StudyPage /> },
       { path: '*', element: <Navigate to="/404" /> }
     ]
   },

@@ -6,7 +6,7 @@ import ContentData from '../../datas/ContentData'
 const { Step } = Steps;
 
 const StudyPage = () => {
-  const [bigStepNum, setBigStepNum] = React.useState(0)
+  const [bigStepNum, setBigStepNum] = React.useState(3)
   const [title, setTitle] = React.useState('')
   const [dataList, setDataList] = React.useState()
 
