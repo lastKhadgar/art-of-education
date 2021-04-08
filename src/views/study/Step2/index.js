@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Row, Col, Input, Button, Radio } from 'antd';
 import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
-import Analysis from '../../components/analysis'
+import Analysis from '../../../components/analysis'
 
 const styles = {
   question: {
@@ -105,7 +105,7 @@ const TorFQuestion = ({ data, showAnswer }) => {
   </>)
 }
 
-const Question = ({ allData, nextBigStep }) => {
+const Step2 = ({ allData, nextBigStep }) => {
   const [questionNum, setQuestionNum] = React.useState(0)
   const [showAnswer, setShowAnswer] = React.useState(false)
 
@@ -152,4 +152,4 @@ const Question = ({ allData, nextBigStep }) => {
   </>)
 }
 
-export default Question
+export default Step2

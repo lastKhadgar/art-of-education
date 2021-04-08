@@ -1,6 +1,7 @@
 import React from 'react'
-import BasicPoints from './BasicPoints'
-import Question from './Question'
+import Step1 from './Step1'
+import Step2 from './Step2'
+import Step3 from './Step3'
 import Step4 from './Step4'
 
 const Content = ({ allData, bigStepNum, nextBigStep }) => {
@@ -8,11 +9,11 @@ const Content = ({ allData, bigStepNum, nextBigStep }) => {
     <>
       {
         bigStepNum === 0 ? 
-        <BasicPoints allData={allData} nextBigStep={nextBigStep} /> :
+        <Step1 allData={allData} nextBigStep={nextBigStep} /> :
         bigStepNum === 1 ? 
-        <Question allData={allData} nextBigStep={nextBigStep} /> :
+        <Step2 allData={allData} nextBigStep={nextBigStep} /> :
         bigStepNum === 2 ? 
-        <Question allData={allData} nextBigStep={nextBigStep} /> :
+        <Step3 allData={allData} nextBigStep={nextBigStep} /> :
         bigStepNum === 3 ? 
         <Step4 allData={allData} nextBigStep={nextBigStep} /> : null
       }

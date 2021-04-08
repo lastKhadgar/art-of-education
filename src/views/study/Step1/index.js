@@ -1,9 +1,9 @@
 import React from 'react' 
 import { Button } from 'antd';
-import Appear from '../../components/Appear'
-import BrDealer from '../../components/BrDealer'
+import Appear from '../../../components/Appear'
+import BrDealer from '../../../components/BrDealer'
 
-const BasicPoints = ({ allData, nextBigStep }) => {
+const Step1 = ({ allData, nextBigStep }) => {
 
   const [stepNum, setStepNum] = React.useState(1)
 
@@ -33,4 +33,4 @@ const BasicPoints = ({ allData, nextBigStep }) => {
   )
 }
 
-export default BasicPoints
+export default Step1
